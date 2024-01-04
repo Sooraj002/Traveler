@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title></title>
   <style>
-    img{
-        height: 100px;
-        width: 100px;
+    img {
+      height: 100px;
+      width: 100px;
     }
   </style>
 </head>
@@ -22,6 +22,12 @@
     <li><%= listing.location %></li>
     <li><%= listing.country %></li>
   </ul>
+  <br>
+  <a href="/listings/<%= listing._id %>/edit">Edit</a>
+  <br><br>
+  <form method="POST" action="/listings/<%= listing._id %>?_method=DELETE">
+    <button>Delete</button>
+  </form>
 </body>
 
 </html>
