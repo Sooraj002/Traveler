@@ -1,5 +1,12 @@
 body {
   font-family: 'Plus Jakarta Sans', sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  flex: 1;
 }
 
 .navbar {
@@ -80,3 +87,8 @@ body {
 }
 
 /* Card Effect */
+
+.add-btn {
+  background-color: #fe424d;
+  border: none;
+}
