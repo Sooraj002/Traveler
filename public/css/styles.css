@@ -88,7 +88,7 @@ body {
 
 /* Card Effect */
 
-.add-btn {
+.add-btn,.edit-btn {
   background-color: #fe424d;
   border: none;
 }
