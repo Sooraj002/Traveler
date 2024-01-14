@@ -2,7 +2,7 @@
 
 <h3>All Listings</h3>
 <div class="row row-cols-lg-3 row-cols-md-3 row-cols-sm-1">
-  <% for (let listing of allListings) {%>
+  <% for (let listing of listings) {%>
   <a href="/listings/<%= listing._id %>" class="listing-link">
     <div class="card col index-card">
       <img src="<%= listing.image %>" class="card-img-top" alt="..." style="height: 20rem;">
