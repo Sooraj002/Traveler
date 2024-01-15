@@ -1,14 +1,16 @@
 const express = require("express");
 const app = express();
-const mongoose = require("mongoose");
 const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
-const Listing = require("../Traveler/models/listing");
 const path = require("path");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
 const wrapAsync = require("./utils/wrapAsync.js")
 const ExpressError = require("./utils/ExpressError.js")
 const { listingSchema } = require("./schema.js");
+const mongoose = require("mongoose");
+const Listing = require("../Traveler/models/listing");
+const Review = require("../Traveler/models/review.js");
+const { connect } = require("http2");
 
 main()
     .then(() => {
@@ -101,6 +103,21 @@ app.delete("/listings/:id", validateListing,
         console.log(listings);
         res.redirect("/listings");
     }));
+
+// review
+// post
+app.post("/listings/:id/reviews", async(req, res) => {
+    let listing = await Listing.findById(req.params.id);
+    let newReview = new Review(req.body.review);
+
+    listing.reviews.push(newReview);
+
+    await newReview.save();
+    await listing.save();
+
+    console.log("New Review saved");
+    res.redirect(`/listings/${listing._id}`);
+});
 
 app.all("*", (req, res, next) => {
     next(new ExpressError(404, "Page not Found!"));
