@@ -1,5 +1,5 @@
 body {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -73,7 +73,6 @@ body {
   object-fit: cover;
 }
 
-
 .card-body {
   padding: 0;
 }
@@ -88,7 +87,8 @@ body {
 
 /* Card Effect */
 
-.add-btn,.edit-btn {
+.add-btn,
+.edit-btn {
   background-color: #fe424d;
   border: none;
 }
@@ -105,5 +105,8 @@ body {
 .show-card {
   padding: 2rem auto;
   border: none;
-
 }
+/* 
+.review-card {
+  border: solid black 1px;
+} */
