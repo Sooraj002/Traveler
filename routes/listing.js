@@ -43,7 +43,7 @@ router.post("/", validateListing,
         const newListing = new Listing(req.body.listings);
         console.log(newListing);
         await newListing.save();
-        res.redirect("/");
+        res.redirect("/listings");
     }));
 
 // Edit Route
@@ -71,7 +71,7 @@ router.delete("/:id", validateListing,
         let { id } = req.params;
         let listings = await Listing.findByIdAndDelete(id);
         console.log(listings);
-        res.redirect("/");
+        res.redirect("/listings");
     }));
 
 
