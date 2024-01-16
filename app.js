@@ -12,6 +12,7 @@ const mongoose = require("mongoose");
 const Listing = require("../Traveler/models/listing");
 const Review = require("../Traveler/models/review.js");
 const { connect } = require("http2");
+const listings = require("./routes/listing.js");
 
 main()
     .then(() => {
@@ -60,62 +61,7 @@ const validateReview = (req, res, next) => {
     }
 }
 
-// Index Route
-app.get("/listings", validateListing,
-    wrapAsync(async (req, res) => {
-        listings = await Listing.find({});
-        res.render("listings/index.ejs", { listings });
-    }));
-
-// New Route
-app.get("/listings/new", (req, res) => {
-    res.render("listings/new.ejs");
-});
-
-// Show Route
-app.get("/listings/:id", validateListing,
-    wrapAsync(async (req, res) => {
-        let { id } = req.params;
-        const listings = await Listing.findById(id).populate("reviews");
-        res.render("listings/show.ejs", { listings });
-    }));
-
-// Create Route
-app.post("/listings", validateListing,
-    wrapAsync(async (req, res, next) => {
-        const newListing = new Listing(req.body.listings);
-        console.log(newListing);
-        await newListing.save();
-        res.redirect("/listings");
-    }));
-
-// Edit Route
-app.get("/listings/:id/edit", validateListing,
-    wrapAsync(async (req, res) => {
-        let { id } = req.params;
-        const listings = await Listing.findById(id);
-        res.render("listings/edit.ejs", { listings })
-    }));
-
-// Update Route
-app.put("/listings/:id", validateListing,
-    wrapAsync(async (req, res) => {
-        if (!req.body.listings) {
-            throw new ExpressError(400, "Send valid data for listing")
-        }
-        let { id } = req.params;
-        await Listing.findByIdAndUpdate(id, { ...req.body.listings });
-        res.redirect(`/listings/${id}`);
-    }));
-
-// Delete Route
-app.delete("/listings/:id", validateListing,
-    wrapAsync(async (req, res) => {
-        let { id } = req.params;
-        let listings = await Listing.findByIdAndDelete(id);
-        console.log(listings);
-        res.redirect("/listings");
-    }));
+app.use("/listings",listings);
 
 // review
 // post
