@@ -3,6 +3,7 @@ const app = express();
 const router = express.Router();
 const User = require("../models/user.js");
 const wrapAsync = require("../utils/wrapAsync");
+const passport = require("passport")
 
 router.get("/signup", (req, res) => {
     res.render("users/signup.ejs");
@@ -18,18 +19,23 @@ router.post("/signup", wrapAsync(async (req, res) => {
         res.redirect("/listings");
 
     } catch (e) {
-        req.flash("error",e.message);
+        req.flash("error", e.message);
         res.redirect("/signup")
-        }
+    }
 }));
 
-app.get("/demouser", async (req, res) => {
-    let fakeUser = new User({
-        email: "student@gmail.com",
-        username: "delta-student"
-    });
-    let registeredUser = await User.register(fakeUser, "helloworld");
-    res.send(registeredUser);
+router.get("/login", (req, res) => {
+    res.render("users/login.ejs");
 })
+router.post("/login",
+    passport.authenticate("local",
+        {
+            failureRedirect: "/login",
+            failureFlash: true
+        }),
+    async (req, res) => {
+        req.flash("success", "Welcome to wanderlust");
+        res.redirect("/listings")
+    });
 
 module.exports = router;
