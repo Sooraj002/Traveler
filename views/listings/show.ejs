@@ -6,12 +6,24 @@
   <div class="card col-6 offset-3 show-card">
     <img src="<%= listings.image %>" class="card-img-top show-img" alt="listings-image">
     <div class="card-body">
-      <p class="card-text"><b></b><br>
+
+      <p class="card-text"><br>
+        <b><i>Owned by:<%= listings.owner.username %></i></b>
+      </p>
+      <p class="card-text">
         <%= listings.description %><br>
+      </p>
+      <p class="card-text">
         &#8377; <%= listings.price %><br>
+      </p>
+      <p class="card-text">
         <%= listings.location %> <br>
+      </p>
+      <p class="card-text">
         <%= listings.country %>
       </p>
+      <br>
+
     </div>
   </div>
   <br>
