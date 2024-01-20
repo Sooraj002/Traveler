@@ -18,14 +18,14 @@ const User = require("./models/user.js");
 
 const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
 main()
-    .then(() => {
-        console.log("Connected to db");
-    })
-    .catch((err) => {
-        // Handle error if needed
-    });
+  .then(() => {
+    console.log("Connected to db");
+  })
+  .catch((err) => {
+    // Handle error if needed
+  });
 async function main() {
-    await mongoose.connect(MONGO_URL);
+  await mongoose.connect(MONGO_URL);
 }
 
 app.set("view engine", "ejs");
@@ -36,18 +36,18 @@ app.engine("ejs", ejsMate);
 app.use(express.static(path.join(__dirname, "/public")));
 
 const sessionOptions = {
-    secret: "mysupersecretcode",
-    resave: false,
-    saveUninitialized: true,
-    cookie: {
-        expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
-        maxAge: 7 * 24 * 60 * 60 * 1000,
-        httpOnly: true,
-    },
+  secret: "mysupersecretcode",
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+    expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
+    maxAge: 7 * 24 * 60 * 60 * 1000,
+    httpOnly: true,
+  },
 };
 
 app.get("/", (req, res) => {
-    res.send("Hi, I am root");
+  res.send("Hi, I am root");
 });
 
 app.use(session(sessionOptions));
@@ -61,10 +61,10 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use((req, res, next) => {
-    res.locals.success = req.flash("success");
-    res.locals.error = req.flash("error");
-    res.locals.currUser = req.user;
-    next();
+  res.locals.success = req.flash("success");
+  res.locals.error = req.flash("error");
+  res.locals.currUser = req.user;
+  next();
 });
 
 // app.get("/demouser", async(req, res) => {
@@ -81,15 +81,15 @@ app.use("/listings/:id/reviews", reviewRouter);
 app.use("/", userRouter);
 
 app.all("*", (req, res, next) => {
-    next(new ExpressError(404, "Page not Found!"));
+  next(new ExpressError(404, "Page not Found!"));
 });
 
 app.use((err, req, res, next) => {
-    let { statusCode = 500, message = "something went wrong!" } = err;
-    res.status(statusCode).render("error.ejs", { message });
-    console.log(message._original);
+  let { statusCode = 500, message = "something went wrong!" } = err;
+  res.status(statusCode).render("error.ejs", { message });
+  console.log(message._original);
 });
 
 app.listen(8080, () => {
-    console.log("Sever is listening to port 8080");
+  console.log("Sever is listening to port 8080");
 });
