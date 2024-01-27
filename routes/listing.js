@@ -16,19 +16,20 @@ router
     upload.single("listings[image]"),
     validateListing,
     wrapAsync(listingController.createListing)
-  );
-
-
-// New Route
-router.get("/new", isLoggedIn, listingController.renderNewForm);
-
-router
-  .route("/:id")
-  .get(validateListing, wrapAsync(listingController.showListing))
-  .put(
-    isLoggedIn,
-    isOwner,
-    validateListing,
+    );
+    
+    
+    // New Route
+    router.get("/new", isLoggedIn, listingController.renderNewForm);
+    
+    router
+    .route("/:id")
+    .get(validateListing, wrapAsync(listingController.showListing))
+    .put(
+      isLoggedIn,
+      isOwner,
+      upload.single("listings[image]"),
+      validateListing,
     wrapAsync(listingController.updateListing)
   )
   .delete(

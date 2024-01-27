@@ -73,6 +73,11 @@ body {
   object-fit: cover;
 }
 
+.edit-img {
+  width: 50%;
+  border-radius: 0.3rem;
+}
+
 .card-body {
   padding: 0;
 }
@@ -110,3 +115,9 @@ body {
 .review-card {
   border: solid black 1px;
 } */
+
+#map {
+  height: 400px;
+  width: 80vh;
+  border-radius: 0.6rem;
+}

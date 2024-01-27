@@ -6,6 +6,7 @@
         "demouser",
         "getcookies",
         "getsignedcookie",
+        "mapbox",
         "Mykonos",
         "mysupersecretcode",
         "mysupersecretstring",
@@ -13,6 +14,7 @@
         "reqcount",
         "resave",
         "Rica",
+        "savedlisting",
         "secretcode",
         "Verbier"
     ]
