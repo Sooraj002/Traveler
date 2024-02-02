@@ -11,10 +11,12 @@ body {
 
 .navbar {
   height: 5rem;
-  background-color: rgba(255, 255, 255, 0.708);
-  backdrop-filter: blur(18px);
+  background-color: rgba(255, 255, 255);
+  /* backdrop-filter: blur(18px); */
 }
-
+.container-fluid {
+  background-color: rgba(255, 255, 255);
+}
 .fa-compass {
   color: #fe424d;
   font-size: 2rem;
@@ -121,3 +123,4 @@ body {
   width: 80vh;
   border-radius: 0.6rem;
 }
+
