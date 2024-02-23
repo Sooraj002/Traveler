@@ -31,7 +31,7 @@ const coordinates = JSON.parse(coordinatesString);
   <div class="btns">
     <a
       href="/listings/<%= listings._id %>/edit"
-      class="btn btn-dark col-1 offset-3 add-btn"
+      class="edit-btn btn btn-dark col-1 offset-3 add-btn"
       >Edit</a
     >
     <form method="POST" action="/listings/<%= listings._id %>?_method=DELETE">
