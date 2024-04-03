@@ -1,20 +1,10 @@
-:root[data-theme="light"] {
-  --text: #0b0a0b;
-  --background: #f5f4f6;
-  --primary: #887698;
-  --secondary: #b8abc4;
-  --accent: #a28fb3;
-}
-.dark-theme{
-  --text: #f5f4f5;
-  --background: #0a090b;
-  --primary: #796789;
-  --secondary: #483b54;
-  --accent: #604c70;
+:root {
+  --background: #0a0011;
+  --text: #edd2ff;
+  --primary: #ac000a;
 }
 
-
-
+/* Base Styles */
 body {
   font-family: "Plus Jakarta Sans", sans-serif;
   display: flex;
@@ -24,21 +14,14 @@ body {
   color: var(--text);
 }
 
-.container {
-  flex: 1;
-}
-
+/* Navbar */
 .navbar {
   height: 5rem;
-  background-color: var(--accent);
-}
-
-.container-fluid {
-  background-color: var(--accent);
+  background-color: var(--background);
 }
 
 .fa-compass {
-  color: #fe424d;
+  color: var(--primary);
   font-size: 2rem;
 }
 
@@ -46,14 +29,40 @@ body {
   color: var(--text);
 }
 
+input {
+  background-color: var(--background);
+  color: var(--text);
+}
+
+.search-btn {
+  background-color: var(--background);
+  color: var(--text);
+  border-radius: 50%;
+}
+
+.search-btn:hover {
+  background-color: var(--primary);
+  color: var(--background);
+}
+
+.search-inp {
+  border-radius: 2rem;
+  font-size: 0.8rem;
+  padding: 0.5rem 3rem;
+}
+
+.nav-link:hover {
+  color: var(--primary);
+}
+
 /* Footer */
-.f-info-links,
-.f-info-socials,
-.f-info-brand {
-  width: 100%;
+.f-info {
+  height: 8rem;
+  background-color: var(--background);
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
 }
 
 .f-info i {
@@ -65,17 +74,9 @@ body {
   text-decoration: none;
   color: var(--text);
 }
+
 .f-info-links a:hover {
   text-decoration: underline;
-}
-
-.f-info {
-  height: 8rem;
-  background-color: var(--secondary);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  text-align: center;
 }
 
 /* Cards */
@@ -83,16 +84,21 @@ body {
   border: none;
   margin-bottom: 2rem;
   transition: 0.5s;
+  border-radius: 0.5rem;
 }
 
 .index-card:hover {
-  scale: 0.95;
+  /* transform: scale(1.04); */
+  z-index: 999;
+  border: none;
+  box-shadow: #c179ff80 5px 5px 20px 4px;
 }
 
 .card-img-top {
-  border-radius: 1rem;
+  border-radius: 0.4rem 0.4rem 0 0;
   width: 100%;
   object-fit: cover;
+  background-color: var(--background);
 }
 
 .edit-img {
@@ -106,21 +112,17 @@ body {
 
 .card-text {
   font-weight: 400;
+  background-color: var(--background);
+  color: var(--text);
+  padding: 0.5rem;
+  border-radius: 0 0 0.4rem 0.4rem;
 }
 
 .listing-link {
   text-decoration: none;
 }
 
-/* Card Effect */
-
-.add-btn,
-.edit-btn {
-  background-color: #fe424d;
-  border: none;
-}
-
-/* show page */
+/* Show Page */
 .show-img {
   height: 30vh;
 }
@@ -130,13 +132,15 @@ body {
 }
 
 .show-card {
-  padding: 2rem auto;
   border: none;
+  background-color: var(--background);
+  color: var(--text);
+  text-align: justify;
 }
 
 #map {
   height: 400px;
-  width: 80vh;
+  width: 80vh; /* Adjusted width */
   border-radius: 0.6rem;
 }
 
@@ -157,12 +161,14 @@ body {
 .filter:hover {
   opacity: 1;
   cursor: pointer;
+  color: var(--primary);
 }
+
 .filter p {
   font-size: 0.8rem;
 }
 
-.tax-info{
+.tax-info {
   display: none;
 }
 
@@ -170,90 +176,186 @@ body {
   border: solid rgb(148, 148, 148) 1px;
   padding: 0.8rem;
   border-radius: 1rem;
-  /* margin-left: 5rem; */
   margin-top: 0.6rem;
 }
 
 .navbar-toggler:focus-visible {
-border: none;
+  border: none;
 }
 
-
-
+/* Media Queries */
 @media (max-width: 720px) {
-  .navbar1 {
-      height: 5rem;
+  .navbar {
+    background-color: var(--background);
   }
 
-  .listing-link{
+  .listing-link {
     display: flex;
   }
 
- #filters{
-  display: none;
- }
+  #filters {
+    display: none;
+  }
 
- #map{
-  width: 75%;
- }
+  #map {
+    width: 75%;
+  }
 
- .btns{
-  flex-direction: row;
-  margin: 0;
- }
+  .btns {
+    flex-direction: row;
+    margin: 0;
+  }
 
- .edit-btn{
-  width: 4rem;
- }
+  .edit-btn {
+    width: 4rem;
+  }
 
   .fa-compass {
-      font-size: 2.5rem;
+    font-size: 2.5rem;
   }
 
   .nav-link {
-      font-size: 1.5rem;
+    font-size: 1.5rem;
   }
 
   .f-info {
-      height: 6rem;
+    height: 6rem;
   }
 
   .f-info-links a {
-      font-size: 1.3rem;
+    font-size: 1.3rem;
   }
 
   .card {
-      width: 19rem;
+    width: 19rem;
   }
 
   .card-body-show {
-      width: 22rem;
-      padding: 2rem;
+    width: 22rem;
+    padding: 2rem;
   }
 
   .new {
-      display: block;
-      width: 23rem;
+    display: block;
+    width: 23rem;
   }
 
   .form-img {
-      width: 19rem;
-      height: 20rem;
+    width: 19rem;
+    height: 20rem;
   }
 
   .contain {
-      padding: 2rem;
+    padding: 2rem;
   }
 
   .show-img {
-      width: 15rem;
+    width: 15rem;
   }
 
   .alert {
-      width: 40rem;
+    width: 40rem;
   }
 
   .card-index {
-      margin: 1rem;
+    margin: 1rem;
   }
+
+  /* Adjustments for success and error messages */
+  .success-message,
+  .error-message {
+    width: 50%;
+  }
+}
+
+/* CSS for sliding animation */
+@keyframes slideInFromTop {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.success-message,
+.error-message {
+  position: relative;
+  top: -100px;
+  opacity: 0;
+  animation: slideInFromTop 0.5s ease forwards;
+}
+
+.success-message.show,
+.error-message.show {
+  top: 0;
+  opacity: 1;
+}
+
+footer {
+  background-color: var(--background) !important;
+}
+
+.toggle-switch {
+  /* position: relative; */
+  width: 100px;
+  height: 50px;
+  --light: #d8dbe0;
+  --dark: #28292c;
+  --link: rgb(27, 129, 112);
+  --link-hover: rgb(24, 94, 82);
+  scale: 0.4;
+  display: none;
+}
+
+.switch-label {
+  position: absolute;
+  width: 100%;
+  height: 50px;
+  background-color: var(--dark);
+  border-radius: 25px;
+  cursor: pointer;
+  border: 3px solid var(--dark);
+}
+
+.checkbox {
+  position: absolute;
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 25px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.checkbox:checked ~ .slider {
+  background-color: var(--light);
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  -webkit-box-shadow: inset 12px -4px 0px 0px var(--light);
+  box-shadow: inset 12px -4px 0px 0px var(--light);
+  background-color: var(--dark);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.checkbox:checked ~ .slider::before {
+  -webkit-transform: translateX(50px);
+  -ms-transform: translateX(50px);
+  transform: translateX(50px);
+  background-color: var(--dark);
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }

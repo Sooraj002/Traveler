@@ -85,7 +85,7 @@
   </div>
 </div>
 
-<div class="row row-cols-lg-3 row-cols-md-3 row-cols-sm-1 mt-3">
+<div class="index-cards row row-cols-lg-3 row-cols-md-3 row-cols-sm-1 mt-3">
   <% for (let listing of listings) {%>
   <a href="/listings/<%= listing._id %>" class="listing-link">
     <div class="card col index-card">
@@ -111,7 +111,7 @@
   let taxSwitch = document.getElementById("flexSwitchCheckDefault");
   taxSwitch.addEventListener("click", () => {
     let taxInfo = document.getElementsByClassName("tax-info");
-    console.log(taxInfo)
+    // console.log(taxInfo)
     for (info of taxInfo) {
       if(info.style.display != "inline"){
       info.style.display = "inline"}
@@ -120,4 +120,5 @@
     }
   }
 })
+
 </script>

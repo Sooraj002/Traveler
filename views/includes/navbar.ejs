@@ -1,25 +1,5 @@
 <style>
-  .search-btn {
-    background-color: #fe424d;
-    color: #fff;
-    border-radius: 50%;
-  }
 
-  .search-btn:hover {
-    background-color: #fe424d;
-    color: #fff;
-  }
-
-  .search-inp {
-    border-radius: 2rem;
-    font-size: 0.8rem;
-    padding: 0.5rem 3rem;
-  }
-
-  .navbar,
-  .container-fluid {
-    background-color: #fff;
-  }
 </style>
 
 <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
@@ -55,8 +35,15 @@
         </form>
       </div>
       <div class="navbar-nav ms-auto">
+        <div  class="toggle-switch">
+          <label class="switch-label">
+            <input type="checkbox" class="checkbox" id="toggle-switch" />
+            <span class="slider"></span>
+          </label>
+        </div>
         <!-- <div id="dark"><i class="fa-solid fa-circle-half-stroke"></i></div> -->
         <a class="nav-link" href="/listings/new">Airbnb your home</a>
+
         <% if(!currUser){ %>
         <a class="nav-link" href="/signup"><b>Sign-up</b></a>
         <a class="nav-link" href="/login"><b>Log-in</b></a>
