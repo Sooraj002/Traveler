@@ -1,7 +1,18 @@
-:root {
-  --background: #0a0011;
-  --text: #edd2ff;
+body[data-theme="light"] {
+  --text: #0a0011;
+  --background: #ebe1f2;
   --primary: #ac000a;
+}
+body[data-theme="dark"] {
+  --text: #ebe1f2;
+  --background: #0a0011;
+  --primary: #ac000a;
+}
+
+#theme {
+  scale: 1.4;
+  padding: 1rem;
+  transition: transform 0.3s ease;
 }
 
 /* Base Styles */

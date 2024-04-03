@@ -20,34 +20,18 @@
     );
   });
 })();
+let btn = document.getElementById("theme");
 
-// const toggleSwitch = document.querySelector(
-//   '.toggle-switch input[type="checkbox"]'
-// );
-
-// let themeSwitch = document.getElementById("toggle-switch");
-// themeSwitch.addEventListener("click", () => {
-//   console.log("hello");
-// });
-
-// function toggleTheme() {
-//   let currentTheme = document.documentElement.getAttribute('data-theme');
-//   let newTheme = (currentTheme === 'dark') ? 'light' : 'dark';
-//   document.documentElement.setAttribute('data-theme', newTheme);
-//   console.log("hello")
-// }
-
-// JavaScript (in your script)
-
-let themeSwitch = document.getElementsByClassName("toggle-switch")[0]; // Select the first element with class "toggle-switch"
-
-themeSwitch.addEventListener("click", function () {
-  let currentTheme = document.documentElement.getAttribute("data-theme");
-  let newTheme = currentTheme === "dark" ? "dark" : "dark";
-
-  // Apply the new theme to the document element
-  document.documentElement.setAttribute("data-theme", newTheme);
-
-  // Optional: Log the current theme for debugging or analytics
-  console.log("Current theme:", newTheme);
+btn.addEventListener("click", function () {
+  const body = document.body;
+  btn.style.transform = btn.style.transform ? "" : "rotate(180deg)";
+  if (body.getAttribute("data-theme") === "light") {
+    body.setAttribute("data-theme", "dark");
+    btn.style.color = "white";
+    console.log("dark");
+  } else {
+    body.setAttribute("data-theme", "light");
+    btn.style.color = "black";
+    console.log("light");
+  }
 });
