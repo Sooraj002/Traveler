@@ -1,6 +1,7 @@
 body[data-theme="light"] {
   --text: #0a0011;
   --background: #ebe1f2;
+  --secondary:#878787;
   --primary: #ac000a;
 }
 body[data-theme="dark"] {
@@ -74,6 +75,7 @@ input {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .f-info i {
@@ -304,7 +306,11 @@ input {
 }
 
 footer {
-  background-color: var(--background) !important;
+  background-color: var(--secondary) ;
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row; */
 }
 
 .toggle-switch {
