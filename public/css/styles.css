@@ -1,6 +1,6 @@
 body[data-theme="light"] {
   --text: #0a0011;
-  --background: #faffec;
+  --background: #f8f7f4;
   --secondary:#878787;
   --primary: #ac000a;
 }
@@ -271,7 +271,7 @@ input {
   }
 
   .alert {
-    width: 80%;
+    width: 50%;
   }
 
   .card-index {
