@@ -26,6 +26,10 @@ body {
   color: var(--text);
 }
 
+.container-fluid{
+  background-color: var(--background);
+}
+
 /* Navbar */
 .navbar {
   height: 5rem;
