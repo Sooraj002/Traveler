@@ -3,10 +3,9 @@
 This project is a full-stack Airbnb clone where users can create accounts, sign in, list their properties (BNBs), and browse listed properties. It aims to replicate the core functionalities of Airbnb, providing a platform for users to host and book accommodations.
 
 ## Technologies Used
-Frontend: HTML, CSS, JavaScript (React.js)
+Frontend: HTML, CSS, JavaScript 
 Backend: Node.js, Express.js
 Database: MongoDB
-Authentication: JSON Web Tokens (JWT)
 Deployment: Render.com
 ## Features
 User Authentication: Users can sign up, sign in, and log out securely using passport.
@@ -22,6 +21,6 @@ Mapbox api
 Mongo DB api
 
 ## To run
-cd traveller
-npm install
-node app.js
+`cd traveller`
+`npm install`
+`node app.js`
