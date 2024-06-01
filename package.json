@@ -1,7 +1,7 @@
 {
-  "engines": {
-    "node": "20.14.0"
-  },
+    "engines": {
+      "node": "20.x"
+    },
   "name": "traveler",
   "version": "1.0.0",
   "main": "index.js",
