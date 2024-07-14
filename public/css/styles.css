@@ -34,6 +34,7 @@ body {
 .navbar {
   height: 5rem;
   background-color: var(--background);
+  width: 90%;
 }
 
 .fa-compass {

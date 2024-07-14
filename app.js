@@ -1,5 +1,5 @@
-if(process.env.NODE_ENV != "production") {
-  require('dotenv').config();
+if (process.env.NODE_ENV != "production") {
+  require("dotenv").config();
 }
 
 const express = require("express");
@@ -10,7 +10,7 @@ const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
 const ExpressError = require("./utils/ExpressError.js");
 const session = require("express-session");
-const MongoStore = require('connect-mongo');
+const MongoStore = require("connect-mongo");
 const flash = require("connect-flash");
 const passport = require("passport");
 
@@ -20,7 +20,7 @@ const userRouter = require("./routes/user.js");
 
 const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
-const { error } = require('console');
+const { error } = require("console");
 
 const dbUrl = process.env.ATLASDB_URL;
 main()
@@ -41,23 +41,12 @@ app.use(methodOverride("_method"));
 app.engine("ejs", ejsMate);
 app.use(express.static(path.join(__dirname, "/public")));
 
-
-
 app.use((req, res, next) => {
   res.locals.success = req.flash("success");
   res.locals.error = req.flash("error");
   res.locals.currUser = req.user;
   next();
 });
-
-// app.get("/demouser", async(req, res) => {
-//     let fakeUser = new User({
-//         email:"student@gmail.com",
-//         username: "delta-student"
-//     });
-//     let registeredUser = await User.register(fakeUser, "helloworld");
-//     res.send(registeredUser);
-// })
 
 app.get("/", (req, res) => {
   res.redirect("/listings");
@@ -73,7 +62,6 @@ app.all("*", (req, res, next) => {
 app.use((err, req, res, next) => {
   let { statusCode = 500, message = "something went wrong!" } = err;
   res.status(statusCode).render("error.ejs", { message });
-  // console.log(message._original);
 });
 
 app.listen(8080, () => {
